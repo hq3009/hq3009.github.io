@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.58.1" />
+
+
+<title>VaR of bdi - Risk Gamer</title>
+<meta property="og:title" content="VaR of bdi - Risk Gamer">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/hq3009">Github</a></li>
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/var/">VaR</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">VaR of bdi</h1>
+
+    
+    <span class="article-date">2020-05-07</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="安装必要的包" class="section level1">
+<h1>安装必要的包</h1>
+<pre class="r"><code>install.packages(&quot;PerformaceAnalytics&quot;)</code></pre>
+<p>如果已经安装过了，就不需要执行这条命令，可以直接加载这个包（或者到最后需要计算 VaR 的时候加载）。</p>
+<pre class="r"><code>library(&quot;PerformanceAnalytics&quot;)</code></pre>
+<pre><code>## Loading required package: xts</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## 
+## Attaching package: &#39;PerformanceAnalytics&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     legend</code></pre>
+</div>
+<div id="数据来源" class="section level1">
+<h1>数据来源</h1>
+<p>数据可以从行情软件获取。也可以从图书馆数据库获取。或者从外网的数据库获取。</p>
+</div>
+<div id="设置工作目录" class="section level1">
+<h1>设置工作目录</h1>
+<pre class="r"><code>setwd(&quot;~/your/path/to/var-bdi/&quot;)</code></pre>
+<p>上面的目录是示例，可以根据你自己的需要设置路径，例如像下面：</p>
+<pre class="r"><code>setwd(&quot;D:/r-work/&quot;)</code></pre>
+</div>
+<div id="导入数据" class="section level1">
+<h1>导入数据</h1>
+<pre class="r"><code>df &lt;- read.csv(&quot;../../static/data/bdi.csv&quot;)</code></pre>
+</div>
+<div id="把其中的列-date-中的数据格式转为日期格式" class="section level1">
+<h1>把其中的列 “date” 中的数据格式转为“日期”格式</h1>
+<pre class="r"><code>df$date &lt;- as.Date(df$date)
+df &lt;- df[order(df[,1]),]
+rate &lt;- diff(df$index)/df$index[-length(df$index)]
+## 上面这段代码的含义是：用 &#39;diff&#39; 求相邻两个交易日之间的收盘价之差，分别除以相应的第一个交易日的收盘价。
+df &lt;- df[-1,]
+df &lt;- cbind(df, rate)</code></pre>
+</div>
+<div id="观察数据" class="section level1">
+<h1>观察数据</h1>
+<pre class="r"><code>plot(df$date, df$index, type=&quot;l&quot;, col = &quot;blue&quot;, main = &quot;波罗的海指数走势&quot;) </code></pre>
+<p><img src="/post/2020-05-07-var-bdi_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>plot(df$date, df$rate, type=&quot;h&quot;, col = &quot;blue&quot;, main = &quot;波罗的海收益率走势&quot;)</code></pre>
+<p><img src="/post/2020-05-07-var-bdi_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<pre class="r"><code>hist(df$rate, breaks = 20, col = &quot;blue&quot;, border = &quot;lightblue&quot;) </code></pre>
+<p><img src="/post/2020-05-07-var-bdi_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
+<pre class="r"><code>plot(density(df$rate)) </code></pre>
+<p><img src="/post/2020-05-07-var-bdi_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
+<pre class="r"><code>curve(dnorm(x,mean(df$rate),sd(df$rate)),xlim=c(-0.12,0.12),col=&quot;blue&quot;,lwd=1.5) </code></pre>
+<p><img src="/post/2020-05-07-var-bdi_files/figure-html/unnamed-chunk-4-5.png" width="672" /></p>
+<pre class="r"><code>curve(pnorm(x,mean(df$rate),sd(df$rate)),xlim=c(-0.12,0.12),col=&quot;blue&quot;,lwd=1.5)</code></pre>
+<p><img src="/post/2020-05-07-var-bdi_files/figure-html/unnamed-chunk-4-6.png" width="672" /></p>
+</div>
+<div id="计算-var" class="section level1">
+<h1>计算 VaR</h1>
+<pre class="r"><code>var_h=VaR(df$rate,p=0.95,method=&quot;historical&quot;)
+var_g=VaR(df$rate,p=0.95,method=&quot;gaussian&quot;)
+var_m=VaR(df$rate,p=0.95,method=&quot;modified&quot;)
+print(c(var_h, var_g, var_m))</code></pre>
+<pre><code>## [1] -0.03209884 -0.03760919 -0.03065806</code></pre>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

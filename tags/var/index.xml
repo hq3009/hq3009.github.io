@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>var on Risk Gamer</title>
+    <link>/tags/var/</link>
+    <description>Recent content in var on Risk Gamer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 07 May 2020 14:48:10 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/var/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VaR of bdi</title>
+      <link>/2020/05/07/var-of-bdi/</link>
+      <pubDate>Thu, 07 May 2020 14:48:10 +0800</pubDate>
+      
+      <guid>/2020/05/07/var-of-bdi/</guid>
+      <description>安装必要的包 install.packages(&amp;quot;PerformaceAnalytics&amp;quot;) 如果已经安装过了，就不需要执行这条命令，可以直接加载这个包（或者到最后需要计算 VaR 的时候加载）。
+library(&amp;quot;PerformanceAnalytics&amp;quot;) ## Loading required package: xts ## Loading required package: zoo ## ## Attaching package: &amp;#39;zoo&amp;#39; ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## as.Date, as.Date.numeric ## ## Attaching package: &amp;#39;PerformanceAnalytics&amp;#39; ## The following object is masked from &amp;#39;package:graphics&amp;#39;: ## ## legend  数据来源 数据可以从行情软件获取。也可以从图书馆数据库获取。或者从外网的数据库获取。
+ 设置工作目录 setwd(&amp;quot;~/your/path/to/var-bdi/&amp;quot;) 上面的目录是示例，可以根据你自己的需要设置路径，例如像下面：
+setwd(&amp;quot;D:/r-work/&amp;quot;)  导入数据 df &amp;lt;- read.csv(&amp;quot;../../static/data/bdi.csv&amp;quot;)  把其中的列 “date” 中的数据格式转为“日期”格式 df$date &amp;lt;- as.Date(df$date) df &amp;lt;- df[order(df[,1]),] rate &amp;lt;- diff(df$index)/df$index[-length(df$index)] ## 上面这段代码的含义是：用 &amp;#39;diff&amp;#39; 求相邻两个交易日之间的收盘价之差，分别除以相应的第一个交易日的收盘价。 df &amp;lt;- df[-1,] df &amp;lt;- cbind(df, rate)  观察数据 plot(df$date, df$index, type=&amp;quot;l&amp;quot;, col = &amp;quot;blue&amp;quot;, main = &amp;quot;波罗的海指数走势&amp;quot;)  plot(df$date, df$rate, type=&amp;quot;h&amp;quot;, col = &amp;quot;blue&amp;quot;, main = &amp;quot;波罗的海收益率走势&amp;quot;) hist(df$rate, breaks = 20, col = &amp;quot;blue&amp;quot;, border = &amp;quot;lightblue&amp;quot;)  plot(density(df$rate))  curve(dnorm(x,mean(df$rate),sd(df$rate)),xlim=c(-0.</description>
+    </item>
+    
+  </channel>
+</rss>
