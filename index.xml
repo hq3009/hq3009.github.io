@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Risk Gamer</title>
+    <title>R Blog</title>
     <link>/</link>
-    <description>Recent content on Risk Gamer</description>
+    <description>Recent content on R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 07 May 2020 14:48:10 +0800</lastBuildDate>
@@ -29,7 +29,7 @@ setwd(&amp;quot;D:/r-work/&amp;quot;)  导入数据 df &amp;lt;- read.csv(&amp;q
       <pubDate>Thu, 07 May 2020 14:33:02 +0800</pubDate>
       
       <guid>/about/</guid>
-      <description>不确定的学习与知识分享。</description>
+      <description>关于不确定性的学习与知识分享。</description>
     </item>
     
   </channel>
