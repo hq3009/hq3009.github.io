@@ -6,10 +6,19 @@
     <description>Recent content in Tags on R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 May 2020 14:48:10 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2020 14:48:10 +0800</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>garch</title>
+      <link>/tags/garch/</link>
+      <pubDate>Mon, 11 May 2020 14:48:10 +0800</pubDate>
+      
+      <guid>/tags/garch/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>var</title>

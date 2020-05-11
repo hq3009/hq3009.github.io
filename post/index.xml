@@ -6,10 +6,21 @@
     <description>Recent content in Posts on R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 May 2020 14:48:10 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2020 14:48:10 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Garch Example: sh0000001</title>
+      <link>/2020/05/11/garch-example-sh0000001/</link>
+      <pubDate>Mon, 11 May 2020 14:48:10 +0800</pubDate>
+      
+      <guid>/2020/05/11/garch-example-sh0000001/</guid>
+      <description>导入数据 setwd(&amp;quot;~/sites/rblog/content/post/&amp;quot;) df &amp;lt;- read.csv(&amp;quot;../../static/data/sh000001.csv&amp;quot;) 这条代码的意思是：读入（read）一个 csv 文档（csv），文档的名称是“ 000001.csv”，保留表头（header = T），读入后，赋值给数据框变量：df
+浏览下数据属性：
+str(df) ## &amp;#39;data.frame&amp;#39;: 4249 obs. of 9 variables: ## $ date : Factor w/ 4249 levels &amp;quot;2000/1/10&amp;quot;,&amp;quot;2000/1/11&amp;quot;,..: 16 17 18 19 1 2 3 4 5 6 ... ## $ close : num 1406 1410 1464 1517 1545 ... ## $ highest : num 1408 1434 1464 1523 1547 ... ## $ lowest : num 1361 1398 1400 1477 1506 .</description>
+    </item>
     
     <item>
       <title>VaR of bdi</title>
