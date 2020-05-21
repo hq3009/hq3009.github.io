@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.58.1" />
+
+
+<title>在 RStudio 上用 R Markdown 生成数据分析报告 - R Blog</title>
+<meta property="og:title" content="在 RStudio 上用 R Markdown 生成数据分析报告 - R Blog">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://hq3009.github.io">Github</a></li>
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/var/">VaR</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">在 RStudio 上用 R Markdown 生成数据分析报告</h1>
+
+    
+    <span class="article-date">2020-05-21</span>
+    
+
+    <div class="article-content">
+      
+
+<h2 id="格式规范">格式规范</h2>
+
+<p>R Markdown 是一种能够进行交互式数据分析的文档格式，代码可以嵌入到文本中，写作和分析两不误，还能导出为网页、PDF 或 Word 文档，一举多得，省却了分析数据和撰写报告两头折腾的麻烦。</p>
+
+<p>Markdown 是一种流行的轻量级标记语言，学习成本非常低，只需要不到5分钟就能学会基本使用，下面简单罗列一些基本规范：</p>
+
+<dl>
+<dt><strong>标题</strong></dt>
+<dd>文字前加井号(#)，几个 &ldquo;#&rdquo; 就表示几级标题。注意井号后面要有空格。</dd>
+<dt><strong>列表</strong></dt>
+<dd>文字前加横杠 (-)，如果需要编号，文字前标注序号 1. 2. 3. 。注意 &ldquo;-&rdquo; 或 &ldquo;1.&rdquo;, &ldquo;2.&rdquo; 后要有空格</dd>
+<dt><strong>代码</strong></dt>
+<dd>用两行连续的重音符号将代码包起来。其中第一行的三个后面紧跟着语言名称。</dd>
+</dl>
+
+<p>下面是一个代码块：</p>
+
+<pre><code>```r
+x &lt;- seq(-pi,pi,0.1)
+plot(x, sin(x))
+```
+</code></pre>
+
+<p>R Markdown 文档其实就是加了点特殊功能的 Markdown 文档。只需要将</p>
+
+<pre><code>```r
+</code></pre>
+
+<p>换成</p>
+
+<pre><code>```{r}
+</code></pre>
+
+<p>就行了。</p>
+
+<p>关于 Markdown 和 R Markdown 其他更细致的格式规范可以参考文档或网上搜索，都很简单，至少比 word 或 excel 简单多了。</p>
+
+<h2 id="安装">安装</h2>
+
+<p>假如你已经正确安装了 R 和 RStudio。
+安装 rmarkdown，只需要在 R 或 RStudio 的控制台（左下角那个可以输入代码的窗口）中输入：</p>
+
+<pre><code class="language-R">install.packages('rmarkdown')
+</code></pre>
+
+<p>等待安装完成，就可以使用 R Markdown 写作/分析了。</p>
+
+<h2 id="操作">操作</h2>
+
+<p>下面是一个简单的例子。</p>
+
+<p>假如你要分析某个数据，可以先建立一个空的文件夹，例如&rdquo;D:\r-work&rdquo;，可以将整理好的 csv 文档放入其中。</p>
+
+<p>打开 rstudio，新建一个文件(New File)，在下拉菜单中选择 &ldquo;R Markdown&rdquo;，在弹出的对话框中填写文档标题和作者，选择想要导出的文档格式，有三种导出格式可选，分别是 html，PDF 和 word。确定后，一个基本的 rmarkdown 文档模板就生成了。将这份新的文档另存到（ctrl+s）刚才新建的文件夹中。</p>
+
+<p>你可以把模板文档的大部分内容删掉，除了夹在两行 &ldquo;&mdash;&rdquo; 之间的内容，那个是文档的元数据，用来设置 rmarkdown，相信你一看便懂。</p>
+
+<p>接下来的操作就是一边写文档，一边分析数据了。rstudio 能识别代码块，代码块的右边有个小三角形，点一下就会执行这个代码块里面的代码。</p>
+
+<p>当然，还有很多功能和选项没有提及，如果感兴趣，可以自己摸索。不感兴趣，也差不多够用。</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

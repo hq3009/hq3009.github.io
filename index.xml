@@ -6,10 +6,26 @@
     <description>Recent content on R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 May 2020 14:48:10 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2020 18:41:00 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在 RStudio 上用 R Markdown 生成数据分析报告</title>
+      <link>/2020/05/21/%E5%9C%A8-rstudio-%E4%B8%8A%E7%94%A8-r-markdown-%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/</link>
+      <pubDate>Thu, 21 May 2020 18:41:00 +0800</pubDate>
+      
+      <guid>/2020/05/21/%E5%9C%A8-rstudio-%E4%B8%8A%E7%94%A8-r-markdown-%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/</guid>
+      <description>格式规范 R Markdown 是一种能够进行交互式数据分析的文档格式，代码可以嵌入到文本中，写作和分析两不误，还能导出为网页、PDF 或 Word 文档，一举多得，省却了分析数据和撰写报告两头折腾的麻烦。
+Markdown 是一种流行的轻量级标记语言，学习成本非常低，只需要不到5分钟就能学会基本使用，下面简单罗列一些基本规范：
+ 标题 文字前加井号(#)，几个 &amp;ldquo;#&amp;rdquo; 就表示几级标题。注意井号后面要有空格。 列表 文字前加横杠 (-)，如果需要编号，文字前标注序号 1. 2. 3. 。注意 &amp;ldquo;-&amp;rdquo; 或 &amp;ldquo;1.&amp;rdquo;, &amp;ldquo;2.&amp;rdquo; 后要有空格 代码 用两行连续的重音符号将代码包起来。其中第一行的三个后面紧跟着语言名称。  下面是一个代码块：
+```r x &amp;lt;- seq(-pi,pi,0.1) plot(x, sin(x)) ```  R Markdown 文档其实就是加了点特殊功能的 Markdown 文档。只需要将
+```r  换成
+```{r}  就行了。
+关于 Markdown 和 R Markdown 其他更细致的格式规范可以参考文档或网上搜索，都很简单，至少比 word 或 excel 简单多了。
+安装 假如你已经正确安装了 R 和 RStudio。 安装 rmarkdown，只需要在 R 或 RStudio 的控制台（左下角那个可以输入代码的窗口）中输入：</description>
+    </item>
     
     <item>
       <title>Garch Example: sh0000001</title>
