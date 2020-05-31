@@ -6,10 +6,30 @@
     <description>Recent content on R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 21 May 2020 18:41:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2020 18:39:00 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>用 Excel 计算风险价值</title>
+      <link>/2020/05/31/%E7%94%A8-excel-%E8%AE%A1%E7%AE%97%E9%A3%8E%E9%99%A9%E4%BB%B7%E5%80%BC/</link>
+      <pubDate>Sun, 31 May 2020 18:39:00 +0800</pubDate>
+      
+      <guid>/2020/05/31/%E7%94%A8-excel-%E8%AE%A1%E7%AE%97%E9%A3%8E%E9%99%A9%E4%BB%B7%E5%80%BC/</guid>
+      <description>计算收益率 用简单的差分计算得到计算每日变动率:
+\[ \frac{p_t - p_{t-1}}{p_t} \]
+其中 \(p_t\) 为某日收盘价， \(p_{t-1}\) 为前一日收盘价。
+图形分析 用 Excel 观察价格走势和收益率走势，分析收益率的波动特征。
+绘制直方图：
+ 在 Excel 安装加载项: 分析数据库。在 Excel 2007 下，按顺序分别点: 文件, 选项, 加载项, 分析数据库 和 分析数据库 - VBA, 转到，确认。 加载后，会在&amp;rdquo;数据&amp;rdquo;的最右边出现&amp;rdquo;数据分析&amp;rdquo;，点击。 点击&amp;rdquo;直方图&amp;rdquo;，确定。 需要选择&amp;rdquo;输入数据&amp;rdquo;，即要使用直方图工具分析的数据。还需要选择&amp;rdquo;接收区域数据&amp;rdquo;, 即这些数字指定了在进行数据分析时希望直方图工具度量输入数据的间隔。 在输出选项中选择&amp;rdquo;新工作表组&amp;rdquo;。 在新的工作表中，将频数用直方图表现出来。公式: =FREQUENCY(A:A,D12:D29)  用 Excel 求正态分布函数与临界值 求均值: AVERAGE（B2:B8）
+求标准差: STDEV(number1, number2,&amp;hellip;)
+求概率密度: NORMDIST(x，mean，standard_dev，cumulative)
+cumulative 为 &amp;ldquo;1&amp;rdquo; 则为累积密度函数，为 &amp;ldquo;0&amp;rdquo; 则为密度函数。
+求临界值:
+NORMSINV(X) 返回标准正态分布的区间点
+NORMINV(X, MEAN, STARDARD VARIANCE) 返回非标准正态分布的区间点</description>
+    </item>
     
     <item>
       <title>在 RStudio 上用 R Markdown 生成数据分析报告</title>
