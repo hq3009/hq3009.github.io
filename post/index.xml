@@ -6,10 +6,23 @@
     <description>Recent content in Posts on R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 31 May 2020 18:39:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2020 19:33:00 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>安装 R 和 R 包</title>
+      <link>/2020/05/31/%E5%AE%89%E8%A3%85-r-%E5%92%8C-r-%E5%8C%85/</link>
+      <pubDate>Sun, 31 May 2020 19:33:00 +0800</pubDate>
+      
+      <guid>/2020/05/31/%E5%AE%89%E8%A3%85-r-%E5%92%8C-r-%E5%8C%85/</guid>
+      <description>安装 R R 可以安装个各类桌面和服务器环境中，R 是开源软件，用户可以免费下载，安装和使用。下面介绍在 Windows 和 Linux 中安装 R 的步骤。
+在 Windows 安装 R 在 Windows 上安装 R 和安装其他软件一样。R 语言的官方网站是：http://www.r-project.org/ ，在首页点击 download R，在跳出的新页面中选择 &amp;ldquo;China&amp;rdquo; 下的镜像服务器，可以选择离你更近的服务器（不过下载速度并不会有太大差异），例如选择中科大的服务器，在新的页面中选择你正在使用的操作系统的下载链接，如果你使用的是 Windows 系统，就选择 Download R for Windows，双击下载的安装文件，一路默认安装即可。
+在 Linux (Ubuntu 18.04) 安装 R 各个 Linux 版本的包管理系统中都包含了 R，因此可以用一条简单的命令就可以在自己的 Linux 系统中安装上 R, 例如在 Ubuntu 上安装的命令为：
+sudo apt install R.x86_64  在 Red Hat 或 Fedora 系统中的安装命令为：
+sudo yum install R.x86_64  尽管可以通过 Ubuntu 软件中心直接安装 R, 但由于 R 的版本更新较快，Ubuntu 的存储库并不总是提供最新的稳定版本，如果想要安装最新的版本，可以通过添加软件库的方式来安装 R 的最新版本。步骤如下：</description>
+    </item>
     
     <item>
       <title>用 Excel 计算风险价值</title>
